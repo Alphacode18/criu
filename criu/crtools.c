@@ -732,6 +732,9 @@ int main(int argc, char *argv[], char *envp[])
 			pr_warn("Using -t with criu restore is obsoleted\n");
 
 		ret = cr_restore_tasks();
+
+		pr_info("end of execution\n");
+		
 		if (ret == 0 && opts.exec_cmd) {
 			close_pid_proc();
 			execvp(opts.exec_cmd[0], opts.exec_cmd);
