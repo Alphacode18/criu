@@ -1404,6 +1404,7 @@ static int restore_wait_inprogress_tasks()
 
 static void __restore_switch_stage(int next_stage)
 {
+	pr_info("Switching to %d stage", next_stage);
 	futex_set(&task_entries->nr_in_progress,
 			stage_participants(next_stage));
 	futex_set_and_wake(&task_entries->start, next_stage);
