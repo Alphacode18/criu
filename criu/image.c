@@ -311,6 +311,10 @@ static int do_open_image(struct cr_img *img, int dfd, int type, unsigned long of
 
 	flags = oflags & ~(O_NOBUF | O_SERVICE);
 
+	if(strcmp(path, "pages-1.img") == 0) {
+		flags |= O_NOBUF;
+	}
+
 	pr_info("Open file: %s - flags <%d> - o_direct <%d>\n", path, flags, O_NOBUF);
 
 	ret = openat(dfd, path, flags, CR_FD_PERM);
