@@ -311,6 +311,8 @@ static int do_open_image(struct cr_img *img, int dfd, int type, unsigned long of
 
 	flags = oflags & ~(O_NOBUF | O_SERVICE);
 
+	pr_info("Open file: %s - flags <%d> - o_direct <%d>\n", path, flags, O_NOBUF);
+
 	ret = openat(dfd, path, flags, CR_FD_PERM);
 	if (ret < 0) {
 		if (!(flags & O_CREAT) && (errno == ENOENT)) {
