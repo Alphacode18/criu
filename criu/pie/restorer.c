@@ -581,7 +581,7 @@ long __export_restore_thread(struct thread_restore_args *args)
 	int my_pid = sys_gettid();
 	int ret;
 
-	if (my_pid != args->pid) {
+	if (my_pid != args->pid && false) {
 		pr_err("Thread pid mismatch %d/%d\n", my_pid, args->pid);
 		goto core_restore_end;
 	}
