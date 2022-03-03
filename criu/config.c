@@ -31,6 +31,8 @@
 
 struct cr_options opts;
 
+char *rpc_cfg_file;
+
 static int count_elements(char **to_count)
 {
 	int count = 0;
