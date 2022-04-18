@@ -581,7 +581,7 @@ long __export_restore_thread(struct thread_restore_args *args)
 	int my_pid = sys_gettid();
 	int ret;
 
-	if (my_pid != args->pid && false) {
+	if (my_pid != args->pid && false) { // IGNITE
 		pr_err("Thread pid mismatch %d/%d\n", my_pid, args->pid);
 		goto core_restore_end;
 	}
@@ -1807,7 +1807,7 @@ long __export_restore_task(struct task_restore_args *args)
 			 */
 
 			RUN_CLONE_RESTORE_FN(ret, clone_flags, new_sp, parent_tid, thread_args, args->clone_restore_fn);
-			if (ret != thread_args[i].pid) {
+			if (ret != thread_args[i].pid && false) {
 				pr_err("Unable to create a thread: %ld\n", ret);
 				mutex_unlock(&task_entries_local->last_pid_mutex);
 				goto core_restore_end;
