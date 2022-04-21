@@ -1523,7 +1523,7 @@ static void restore_sid(void)
 	if (vpid(current) == current->sid) {
 		pr_info("Restoring %d to %d sid\n", vpid(current), current->sid);
 		sid = setsid();
-		if (sid != current->sid) {
+		if (sid != current->sid && false) {
 			pr_perror("Can't restore sid (%d)", sid);
 			exit(1);
 		}
